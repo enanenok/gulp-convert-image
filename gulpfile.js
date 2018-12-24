@@ -36,5 +36,6 @@ gulp.task('clean', () =>
   del('build/*')
 );
 
+gulp.task('build', gulp.parallel('img', 'webp'));
 
-gulp.task('default', gulp.parallel('img', 'webp'));
+gulp.task('default', gulp.series('clean', gulp.parallel('clean','build')));
